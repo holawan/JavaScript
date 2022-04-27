@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script>
+    // div#app 요소 선택
+    const apps = document.querySelector('#app')
+    // h1 태그를 createElement 로 생성
+    const HEAD = document.createElement('h1')
+    // 생성한 h1태그의 내용을 '오늘의 Todo' 로 설정
+    HEAD.innerText = '오늘의Todo'
+    document.body.append(HEAD)
+    // ul, li 태그들을 생성 및 내용 추가
+    const ul = document.createElement('ul')
+    document.body.append(ul)
+
+    const new1 = document.createElement('li')
+    new1.innerText = 'JavaScript 복습'
+    const new2 = document.createElement('li')
+    new2.innerText = 'Django API 서버 구축'
+    const new3 = document.createElement('li')
+    new3.innerText = '대외활동 회의 '
+    ul.append(new1, new2, new3)
+    // 각 태그들을 적절하기 div#app 요소에 자식요소로 추가. (#app > ul > li)
+    app.append(HEAD)
+    app.append(ul)
+  </script>
+</body>
+
+</html>

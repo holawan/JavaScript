@@ -27,7 +27,27 @@
     */
    //fomm 선택
     const todoForm = document.querySelector('form')
+    //event 만들기 
+    todoForm.addEventListener('submit',function() {
+      //form을 제출 했을 때 action으로 이동 막기 
+      event.preventDefault()
+      //input 태그 선택 
+      const inputvalue = document.querySelector('input')
+      //input의 value를 저장 
+      const content = inputvalue.value
+
+      const li = document.createElement('li')
+      li.innerText = content
+      if (content.trim() === '') {
+        alert('글을 입력하시오')
+      }else {
+      const ul = document.querySelector('ul')
+      ul.append(li)
+    } 
+    todoForm.reset()
+   
     
+    })
 
 
   </script>

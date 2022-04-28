@@ -26,7 +26,25 @@
       2. li#whiteButton 클릭시 background-color는 white, color는 black으로 변경
       3. li#navyButton 클릭시 background-color는 navy, color는 white로 변경
     */
+    
+    const gray = document.querySelector('#grayButton')
+    gray.addEventListener('click',function(){
+      const body = document.querySelector('body')
+      body.setAttribute('style','color:white; background-color:gray')
+    })
+    const white = document.querySelector('#whiteButton')
+    white.addEventListener('click',function(){
+      const body = document.querySelector('body')
+      body.setAttribute('style','color:black; background-color:white')
+    })
+    const navy = document.querySelector('#navyButton')
+    navy.addEventListener('click',function(){
+      const body = document.querySelector('body')
+      body.setAttribute('style','color:white; background-color:navy')
+    })
 
+    
+    
   </script>
 </body>
 

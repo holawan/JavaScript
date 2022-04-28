@@ -6,6 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .redline{
+      text-decoration: line-through;
+      text-decoration-color: red;
+      color: red;
+    }
+    button{
+      margin-left : 10px;
+    } 
+  </style>
 </head>
 
 <body>
@@ -44,9 +54,24 @@
       const ul = document.querySelector('ul')
       ul.append(li)
     } 
-    todoForm.reset()
-   
+      todoForm.reset()
     
+    // 삭제 버튼
+      const deleteButton = document.createElement('button')
+      deleteButton.innerText='삭제'
+      deleteButton.addEventListener('click',function(){
+        li.remove()
+        
+      })
+
+      li.addEventListener('click',function(){
+        if (li.classList.contains('redline')){
+          li.classList.remove('redline')
+        }else {
+          li.classList.add('redline')
+        }
+      })
+      li.append(deleteButton)
     })
 
 

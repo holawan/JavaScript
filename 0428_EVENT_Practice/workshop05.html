@@ -62,7 +62,13 @@
       let now = new Date()
       let hours = now.getHours()
       let minutes = now.getMinutes()
+      if (minutes/10<1){
+        minutes = `0${minutes}`
+      }
       let seconds = now.getSeconds()
+      if (seconds/10<1){
+        seconds = `0${seconds}`
+      }
       if (now >12){
         timeDiv.innerText = '오후 ' + (hours-12)+':'+ minutes +':'+ seconds
       }

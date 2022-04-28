@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ball-list {
+      display: block;
+    }
+    .ball {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      border-radius: 50px;
+      background-color: gold;
+    }
+  </style>
+</head>
+<body>
+  <h1>로또 추첨</h1>
+  <button class = "btn btn-primary" id="lottoButton">행운 번호 추첨</button>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <hr>
+
+  <section id ="result"></section>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+    // 버튼을 누르면 lodash라이브러리를 통해 1 ~ 46가지의 랜덤한 6개의 숫자를 추출
+    function createNum() {
+      const Collection = []
+      let start = 1 
+    for (let i = 0 ; i<45;i++){
+      Collection[i] = start 
+      start ++  
+    }
+    const numbers = _.sampleSize(Collection,6)
+    return numbers
+    }
+
+    const lottoButton  = document.querySelector('#lottoButton')
+    // lottoButton.addEventListener('click',function(){
+
+    //   const section = document.querySelector('#result')
+    //   if (section.hasChildNodes()){
+    //     section.removeChild(section.lastChild)
+    //   }
+      
+    //   const numbers = createNum()
+    //   const main = document.createElement('div')
+    //   main.setAttribute('class','ball-list')
+
+    //   const num1 = document.createElement('div')
+    //   // num1.setAttribute('class','ball')
+    //   num1.innerText = numbers[0]
+    //   const num2 = document.createElement('div')
+    //   // num2.setAttribute('class','ball')
+    //   num2.innerText = numbers[1]
+    //   const num3 = document.createElement('div')
+    //   // num3.setAttribute('class','ball')
+    //   num3.innerText = numbers[2]
+    //   const num4 = document.createElement('div')
+    //   // num4.setAttribute('class','ball')
+    //   num4.innerText = numbers[3]
+    //   const num5 = document.createElement('div')
+    //   // num5.setAttribute('class','ball')
+    //   num5.innerText = numbers[4]
+    //   const num6 = document.createElement('div')
+    //   num6.setAttribute('class','ball')
+    //   num6.innerText = numbers[5]
+
+    //   const numlst = [num1,num2,num3,num4,num5,num6]
+    //   for (num of numlst){
+    //     num.setAttribute('class','ball')
+    //   }
+    //   main.append(num1,num2,num3,num4,num5,num6)
+      
+    //   section.appendChild(main)
+    // })
+    lottoButton.addEventListener('click',function(){
+      const section = document.querySelector('#result')
+      if (section.hasChildNodes()){
+          section.removeChild(section.lastChild)
+        }
+        
+        const numbers = createNum()
+        const main = document.createElement('div')
+        main.setAttribute('class','ball-list')
+
+        for (let i=0; i<6; i++){
+          const num = document.createElement('div')
+          num.setAttribute('class','ball')
+          num.innerText = numbers[i]
+          main.append(num)
+        }
+        
+        section.appendChild(main)
+      })
+    // 나온 숫자를 출력 (새로운 element를 만들고, 숫자를 담은 후 section에 element를 더함)
+    // + 각각의 숫자에 위의 style에 나와있는 style 또는 직접 style을 작성
+    // + 숫자 크기별로 1~10, 11~20 다른 색상을 가지도록 수정
+    // + 버튼을 누르면 숫자가 누적되는게 아니라 값이 바뀌도록 (또는 삭제 후 재생성되도록) 수정
+  </script>
+  
+</body>
+</html>

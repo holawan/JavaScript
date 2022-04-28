@@ -25,10 +25,18 @@
     const badWords = ['바보', '멍청', '메롱',]
     const userInput = document.querySelector('#userInput')
     const output = document.querySelector('#output')
-
+  
+    // 왜 안돼지 ? 
     function filterMessage(event) {
+      let userInputValue = userInput.value
+      for (const badWord of badWords){
+        userInputValue = userInputValue.replaceAll(badWord,'**')
+      }
+      // filteredInput = userInput.value
       // badWords에 포함된 단어가 입력될 경우, '**'으로 변환하여 output에 출력 
+      const filteredInput = userInputValue
       output.innerText = filteredInput
+      
     }
 
     userInput.addEventListener('input', filterMessage)   

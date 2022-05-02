@@ -26,9 +26,8 @@
     const userInput = document.querySelector('#userInput')
     const output = document.querySelector('#output')
   
-    // 왜 안돼지 ? 
     function filterMessage(event) {
-      let userInputValue = userInput.value
+      let userInputValue = event.target.value
       for (const badWord of badWords){
         userInputValue = userInputValue.replaceAll(badWord,'**')
       }

@@ -41,6 +41,7 @@
       start ++  
     }
     const numbers = _.sampleSize(Collection,6)
+    numbers.sort((a,b)=>a-b)
     return numbers
     }
 
@@ -97,6 +98,12 @@
           const num = document.createElement('div')
           num.setAttribute('class','ball')
           num.innerText = numbers[i]
+          if (numbers[i]<10){
+            num.style.backgroundColor ="red"
+          }
+          else if(numbers[i]<20){
+              num.style.backgroundColor = 'green'
+          }
           main.append(num)
         }
         

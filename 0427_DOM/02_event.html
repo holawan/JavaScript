@@ -37,11 +37,16 @@
 
     // 2-1
     const myButton = document.querySelector('#my-button')
+    myButton.addEventListener('click',alertMessage)
 
     // 2-2
     const myTextInput = document.querySelector('#my-text-input')
 
-    
+    const ifInputIsComing = function(event) {
+      const myp = document.querySelector('#my-paragraph')
+      myp.innerText = event.target.value
+    }
+    myTextInput.addEventListener('input',ifInputIsComing)
 
     // 2-3
     const colorInput = document.querySelector('#change-color-input')

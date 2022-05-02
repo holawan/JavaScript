@@ -7,7 +7,15 @@
   <title>Document</title>
 </head>
 <body>
+  <button>버튼</button>
   <script>
+    const btn = document.querySelector('button')
+    btn.addEventListener('click',function() {
+      alert('Click!')
+      const pElem = document.createElement('p')
+      pElem.innerText = 'sample text'
+      document.body.appendChild(pElem)
+    })
   </script>
 </body>
 </html>

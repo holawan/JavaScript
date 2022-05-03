@@ -7,8 +7,29 @@
   <title>Document</title>
 </head>
 <body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
+	const URL = 'https://jsonplaceholder.typicode.com/todos/'
+    
+    // const responsePromise = axios.get(URL)
+    // responsePromise
+    //   .then(function(res){return res.data} )
+    //   .then(function (x) {console.log(x.title)})
 
+    
+    axios.get(URL) //Promise 리턴 
+	//data 받아오기  
+    .then(res => {
+      const todoArray = res.data
+      const todo = todoArray.find(todo => todo.id === 10)
+      return axios.get(`${URL}${todo.id}`)
+    } )
+	//data에서 title 뽑기 
+    .then(res => console.log(res.data))
+	//title 출력하기 
+	//문제가 발생하면 에러 뱉기 
+    .catch(err => console.error(err))
+     .finally(x => console.log('끝'))
   </script>
 </body>
 </html>

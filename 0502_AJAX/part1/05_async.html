@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+  const URL = 'https://dog.ceo/api'
+
+  function fetchFirstDogImage() {
+      axios.get(URL + 'breeds/list/all')
+      .then(res => {
+          const breed = Object.keys(res.data.message)[0]
+          return axios.get(URL + `breed/${breed}/images`)
+      })
+      .then(res => {
+          console.log(res)
+      })
+      .catch(err => {
+          console.error(err.response)
+      })
+  }
+  fetchFirstDogImage()
+
+
+  // const URL = 'https://dog.ceo/api'
+
+  async function fetchFirstDogImage2() {
+    const res = await axios.get(URL = 'breeds/list/all')
+    const breed = Object.keys(res.data.message)[0]
+    const images = await axios.get(URL + `breed/${breed}images`)
+    console.log(images)
+}
+fetchFirstDogImage2()
+	.catch(err => console.error(err.response))
+  </script>
+</body>
+</html>
